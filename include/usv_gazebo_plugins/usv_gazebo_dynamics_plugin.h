@@ -46,6 +46,7 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 // Custom Callback Queue
 #include <ros/callback_queue.h>
 #include <ros/advertise_options.h>
+#include <ignition/math/Vector3.hh> 
 
 namespace gazebo
 {
@@ -116,18 +117,18 @@ namespace gazebo
     
     // Simulation time of the last update
     common::Time prev_update_time_;
-    math::Vector3 prev_lin_vel_;
-    math::Vector3 prev_ang_vel_;
+    ignition::math::Vector3d prev_lin_vel_;
+    ignition::math::Vector3d prev_ang_vel_;
     common::Time last_cmd_drive_time_;  
     double last_cmd_drive_left_;
     double last_cmd_drive_right_;
-    math::Pose pose_;
-    math::Vector3 euler_;
-    math::Vector3 vel_linear_body_;
-    math::Vector3 vel_angular_body_;
-    math::Vector3 acceleration;
-    math::Vector3 angular_velocity_;
-    math::Vector3 angular_acceleration_;
+    ignition::math::Pose3d pose_;
+    ignition::math::Vector3d euler_;
+    ignition::math::Vector3d vel_linear_body_;
+    ignition::math::Vector3d vel_angular_body_;
+    ignition::math::Vector3d acceleration;
+    ignition::math::Vector3d angular_velocity_;
+    ignition::math::Vector3d angular_acceleration_;
     Eigen::VectorXd state_dot_;
     Eigen::VectorXd state_;
     Eigen::VectorXd amassVec_;
@@ -214,10 +215,10 @@ namespace gazebo
     */
 
     /*! Wind velocity in Gazebo coordinates [m/s] */
-    math::Vector3 param_wind_velocity_vector_;
+    ignition::math::Vector3d param_wind_velocity_vector_;
 
     /*! Wind force coefficients */
-    math::Vector3 param_wind_coeff_vector_;
+    ignition::math::Vector3d param_wind_coeff_vector_;
     
     boost::thread *spinner_thread_;
     
